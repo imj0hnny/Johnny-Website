@@ -128,6 +128,8 @@
         }
         .socials-link:hover { color: var(--accent-charcoal); }
 
+        .mobile-divider { display: none; }
+
         @media (min-width: 950px) {
             body { padding: 100px 80px; }
             .floating-call { display: none; }
@@ -146,8 +148,19 @@
             .top-quote { order: 2; }
             .portrait-container { order: 3; }
             .bio-text { order: 4; }
-            .contact-card-mobile { order: 5; display: block !important; }
+            /* Added slight margin-top to move box down below signature */
+            .contact-card-mobile { order: 5; display: block !important; margin-top: 40px; }
             .local-picks { order: 6; }
+            
+            /* Show divider on mobile between carousel and salon */
+            .mobile-divider { 
+                display: block; 
+                order: 7; 
+                border-top: 1px solid #e0dbd7; 
+                margin: 60px 0 20px 0; 
+                width: 100%;
+            }
+            .salon-section { margin-top: 0; border-top: none; }
         }
         
         .contact-card-mobile { display: none; }
@@ -251,6 +264,8 @@
         </div>
     </div>
 
+    <div class="mobile-divider"></div>
+
     <div class="salon-section">
         <div class="salon-info">
             <span class="section-header">Salon Inquiry</span>
@@ -258,7 +273,7 @@
             
             <div style="margin-bottom: 35px;">
                 <p style="font-family: 'Tenor Sans', sans-serif; font-size: 1.6rem; line-height: 1.3; margin-bottom: 10px; color: var(--text-main);">"Life's too short for bad houses or bad hair."</p>
-                <p style="font-weight: 300; font-size: 1.25rem; color: var(--text-main); line-height: 1.5;">I’ll find you the perfect roof, then make sure you look great under it.</p>
+                <p style="font-weight: 300; font-size: 1.05rem; color: var(--text-main); line-height: 1.5;">I’ll find you the perfect roof, then make sure you look great under it.</p>
             </div>
             
             <a href="https://salonbluhair.com/brier-creek" target="_blank" class="salon-btn">BOOK APPOINTMENT</a>
