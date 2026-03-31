@@ -38,11 +38,18 @@
 
         /* --- HERO GRID --- */
         .hero-container {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 60px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
             margin-bottom: 80px;
         }
+
+        /* Logic for Mobile Reordering */
+        .title-group { order: 1; }
+        .top-quote { order: 2; margin: 20px 0 10px 0; }
+        .portrait-container { order: 3; margin-bottom: 20px; } /* Headshot now 3rd on mobile */
+        .bio-text-wrapper { order: 4; display: flex; flex-direction: column; }
+        .contact-sidebar { order: 5; }
 
         .subtitle {
             font-size: 0.65rem;
@@ -60,11 +67,6 @@
             margin: 0;
             line-height: 0.95;
             letter-spacing: -1px;
-        }
-
-        .top-quote {
-            margin: 30px 0 45px 0;
-            max-width: 600px;
         }
 
         .bio-text p { font-weight: 300; line-height: 2.1; margin-bottom: 25px; font-size: 0.95rem; }
@@ -90,7 +92,7 @@
         .overlay-text { font-family: 'Tenor Sans', sans-serif; font-size: 2rem; margin: 0; color: var(--text-main); }
 
         /* North Hills & Carousels */
-        .local-picks { margin-top: 100px; border-top: 1px solid #e0dbd7; padding-top: 50px; }
+        .local-picks { margin-top: 60px; border-top: 1px solid #e0dbd7; padding-top: 50px; }
         .picks-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 30px; margin-bottom: 40px;}
         .pick-item { text-decoration: none; color: inherit; display: block; }
         .pick-item span { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); }
@@ -102,7 +104,6 @@
         .carousel-slide { min-width: 100%; display: flex; justify-content: center; align-items: center; }
         .carousel-slide a { display: block; width: 100%; }
         .carousel-slide img { width: 100%; height: auto; object-fit: contain; display: block; transition: opacity 0.3s; cursor: pointer; }
-        .carousel-slide img:hover { opacity: 0.85; }
 
         /* Buttons */
         .vcard-btn, .salon-btn { 
@@ -147,19 +148,21 @@
         .back-to-top.visible { opacity: 1; visibility: visible; }
         .back-to-top svg { width: 18px; height: 18px; fill: currentColor; }
 
-        .witty-footer {
-            margin-top: 20px;
-            text-align: left;
-            max-width: 480px;
-        }
-
-        /* Desktop Grid */
+        /* --- DESKTOP GRID ADJUSTMENTS --- */
         @media (min-width: 950px) {
             body { padding: 100px 80px; }
             .floating-call { display: none; }
             .back-to-top { bottom: 40px; right: 40px; }
-            .hero-container { grid-template-columns: 1.1fr 0.9fr; gap: 100px; }
-            .contact-sidebar { position: sticky; top: 100px; height: fit-content; }
+            
+            .hero-container { 
+                display: grid;
+                grid-template-columns: 1.1fr 0.9fr; 
+                gap: 100px; 
+            }
+            /* Reset Desktop Order for sidebar effect */
+            .bio-text-wrapper { order: 1; }
+            .contact-sidebar { order: 2; position: sticky; top: 100px; height: fit-content; }
+            .local-picks { margin-top: 100px; }
             .salon-section { grid-template-columns: 1.1fr 0.9fr; display: grid; gap: 100px; }
         }
     </style>
@@ -172,31 +175,39 @@
 <div class="main-wrapper">
     
     <div class="hero-container">
+        
+        <div class="title-group">
+            <span class="subtitle">Real Estate Advisor</span>
+            <h1 class="title">Johnny Knapp</h1>
+        </div>
+
+        <div class="top-quote">
+            <p style="font-family: 'Tenor Sans', sans-serif; font-size: 1.6rem; color: var(--text-main); margin-bottom: 10px; line-height: 1.3;">
+                "Life's too short for bad houses or bad hair."
+            </p>
+            <p style="font-size: 1.05rem; color: var(--text-main); letter-spacing: 0.5px; font-weight: 300;">
+                I’ll find you the perfect roof, then make sure you look great under it.
+            </p>
+        </div>
+
+        <div class="portrait-container">
+            <div class="portrait-frame">
+                <img src="https://i.postimg.cc/ncX3Kcp5/Facetune-30-03-2026-12-58-14.jpg" style="width:100%" alt="Johnny Knapp">
+                <div class="overlay-content"><p class="overlay-text">Hi! I'm Johnny!</p></div>
+            </div>
+        </div>
+
         <div class="bio-text-wrapper">
-            <div class="title-group">
-                <span class="subtitle">Real Estate Advisor</span>
-                <h1 class="title">Johnny Knapp</h1>
-            </div>
-
-            <div class="top-quote">
-                <p style="font-family: 'Tenor Sans', sans-serif; font-size: 1.6rem; color: var(--text-main); margin-bottom: 10px; line-height: 1.3;">
-                    "Life's too short for bad houses or bad hair."
-                </p>
-                <p style="font-size: 1.05rem; color: var(--text-main); letter-spacing: 0.5px; font-weight: 300;">
-                    I’ll find you the perfect roof, then make sure you look great under it.
-                </p>
-            </div>
-
             <div class="bio-text">
                 <p>I’m an approachable 'server' at heart who loves making the moving process feel as good as the result. My goal is simple: I want you to feel completely taken care of while I handle the high-stakes side of your transaction. I’m genuinely invested in seeing my clients succeed—and I’ll be cheering the loudest when we close!</p>
-                <p>I offer a unique blend of technical precision and high-touch service; <strong>imagine a Golden Retriever, but it understands Escrow.</strong> My background as a Premier Real Estate Agent and Master Stylist/Redken National Ambassador has forged a dual mastery in disciplined transactions and intuitive client relations.</p>
+                <p>I offer a unique blend of technical precision and high-touch service; <strong>imagine a Golden Retriever, but it understands Escrow.</strong> My background as a Premier Real Estate Agent and Master Stylist/Redken National Ambassador has forged a dual mastery in disciplined transactions and intuitive client relations. I guide my clients with an elite level of performance, but I never lose sight of the human connection.</p>
                 <p>Off the clock, I trade the professional precision for a dry martini and some quality gabbing. I’m a coastal NC soul living in North Hills with my partner Hunter and our two pups, Blayden and Brody. If you see me at La Terrazza, come say hi!</p>
                 <div class="signature">Johnny</div>
             </div>
 
             <div class="local-picks">
                 <span class="subtitle" style="font-size: 0.55rem;">Local Favorites</span>
-                <h3 style="font-family: 'Tenor Sans', sans-serif; font-weight: 400; font-size: 1.6rem; margin: 10px 0 10px 0;">The North Hills Edit</h3>
+                <h3 style="font-family: 'Tenor Sans', sans-serif; font-weight: 400; font-size: 1.6rem; margin: 15px 0 10px 0;">The North Hills Edit</h3>
                 <div class="picks-grid">
                     <a href="https://laterrazzaraleigh.com/" target="_blank" class="pick-item"><span>Aperitivo</span><p>La Terrazza</p></a>
                     <a href="https://www.carolinabeach.gov/35/Discover-CB" target="_blank" class="pick-item"><span>Escapism</span><p>Carolina Beach</p></a>
@@ -217,13 +228,6 @@
         </div>
 
         <div class="contact-sidebar">
-            <div class="portrait-container" style="margin-bottom: 40px;">
-                <div class="portrait-frame">
-                    <img src="https://i.postimg.cc/ncX3Kcp5/Facetune-30-03-2026-12-58-14.jpg" style="width:100%" alt="Johnny Knapp">
-                    <div class="overlay-content"><p class="overlay-text">Hi! I'm Johnny!</p></div>
-                </div>
-            </div>
-
             <div class="contact-card">
                 <span class="section-header">Work With Me</span>
                 <a href="#" class="vcard-btn">SAVE CONTACT</a>
@@ -231,7 +235,6 @@
                 <a href="tel:9843358772" class="contact-item"><span>Voice</span><span>984.335.8772</span></a>
                 <a href="sms:19843358772" class="contact-item"><span>Mobile</span><span style="font-weight:600">Text Johnny</span></a>
                 <a href="mailto:johnny.knapp@allentate.com" class="contact-item"><span>Inquiry</span><span>Email Johnny</span></a>
-                
                 <div class="qr-section" style="text-align: center; margin-top: 40px; opacity: 0.5;">
                     <img src="https://i.postimg.cc/J021v36G/QR-Code.jpg" style="width: 100px; mix-blend-mode: multiply;">
                 </div>
