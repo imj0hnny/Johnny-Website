@@ -135,16 +135,27 @@
             .hero-container { grid-template-columns: 1.1fr 0.9fr; gap: 100px; }
             .contact-sidebar { position: sticky; top: 80px; height: fit-content; }
             .salon-section { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 100px; margin-top: 100px; border-top: 1px solid #e0dbd7; padding-top: 80px; }
+            /* Desktop Hide of the duplicated mobile portrait */
             .bio-text-wrapper .portrait-container { display: none; }
         }
 
         @media (max-width: 949px) {
             .contact-sidebar .portrait-container { display: none; }
+            /* Hide the original sidebar location on mobile so it can be re-ordered */
+            .contact-sidebar { display: none; }
             .bio-text-wrapper { display: flex; flex-direction: column; }
-            .title-group { order: -3; }
-            .top-quote { order: -2; }
-            .portrait-container { order: -1; }
+            
+            /* Specific Order */
+            .title-group { order: 1; }
+            .top-quote { order: 2; }
+            .portrait-container { order: 3; }
+            .bio-text { order: 4; }
+            .contact-card-mobile { order: 5; display: block !important; }
+            .local-picks { order: 6; }
         }
+        
+        /* Utility to show contact card only on mobile inside the flow */
+        .contact-card-mobile { display: none; }
     </style>
 </head>
 <body id="top">
@@ -179,6 +190,20 @@
                 <p>I offer a unique blend of technical precision and high-touch service; <strong>imagine a Golden Retriever, but it understands Escrow.</strong> My background as a Premier Real Estate Agent and Master Stylist has forged a dual mastery in disciplined transactions and intuitive client relations.</p>
                 <p>Off the clock, I trade the professional precision for a dry martini and some quality gabbing. I’m a coastal NC soul living in North Hills with my partner Hunter and our two pups, Blayden and Brody. If you see me at La Terrazza, come say hi!</p>
                 <div class="signature">Johnny</div>
+            </div>
+            
+            <div class="contact-card contact-card-mobile">
+                <span class="section-header">Work With Me</span>
+                <a onclick="downloadVCF()" class="vcard-btn">SAVE CONTACT</a>
+                <a href="tel:9843358772" class="contact-item"><span>Voice</span><span>984.335.8772</span></a>
+                <a href="sms:19843358772" class="contact-item"><span>Mobile</span><span style="font-weight:600">Text Johnny</span></a>
+                <a href="mailto:johnny.knapp@allentate.com" class="contact-item"><span>Inquiry</span><span>Email Johnny</span></a>
+                <div style="text-align: center; margin-top: 30px;">
+                    <a href="https://www.instagram.com/imj0hnny/" target="_blank" style="display: inline-block; opacity: 0.3;">
+                        <img src="https://i.postimg.cc/J021v36G/QR-Code.jpg" style="width: 80px; mix-blend-mode: multiply;">
+                    </a>
+                    <a href="https://www.instagram.com/imj0hnny/" target="_blank" class="socials-link">View Socials</a>
+                </div>
             </div>
 
             <div class="local-picks">
@@ -259,7 +284,7 @@
 </div>
 
 <script>
-    // vCard Generator - FN: Johnny Knapp
+    // vCard Generator
     function downloadVCF() {
         const vcfData = [
             'BEGIN:VCARD',
@@ -299,7 +324,6 @@
             }
         }, intervalTime);
 
-        // Attach listeners to all carousels to sync pause
         carouselConfigs.forEach(config => {
             const el = document.getElementById(config.id);
             if (el) {
@@ -310,7 +334,6 @@
     }
 
     document.addEventListener('DOMContentLoaded', () => {
-        // Sync 3-second snappy transitions
         initSyncCarousels([
             { id: 'nhCarousel', slides: 4 },
             { id: 'salonCarousel', slides: 3 }
