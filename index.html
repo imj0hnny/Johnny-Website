@@ -164,7 +164,7 @@
         .carousel-heading { font-family: 'Tenor Sans', sans-serif; text-transform: uppercase; letter-spacing: 5px; font-size: 0.8rem; margin-bottom: 25px; display: inline-block; border-bottom: 1px solid #ddd; padding-bottom: 5px; }
 
         .picks-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 30px; }
-        .pick-item { text-decoration: none; color: inherit; display: block; padding: 15px; border: 1px solid #e0e0e0; background-color: white; transition: all 0.3s ease; }
+        .pick-item { text-decoration: none; color: inherit; display: block; padding: 15px; border: 1px solid #e0e0e0; background-color: white; transition: all 0.3s ease; position: relative; z-index: 10; }
         .pick-item:hover { background: var(--accent-charcoal); color: white; }
 
         .floating-call { position: fixed; bottom: 30px; right: 30px; width: 65px; height: 65px; background: var(--accent-charcoal); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 1000; }
@@ -179,25 +179,21 @@
             .hero-container { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 100px; }
             .contact-sidebar { position: sticky; top: 80px; height: fit-content; }
             .local-grid, .salon-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
-            .bio-text-wrapper .portrait-container { display: none; }
+            #mobile-portrait-wrapper { display: none; }
         }
 
         @media (max-width: 949px) {
             #custom-cursor, #scroll-progress { display: none; }
             * { cursor: auto !important; }
-            .contact-sidebar { display: block; margin-top: 50px; }
+            .contact-sidebar, .connect-bento .portrait-container { display: none !important; }
+            #mobile-portrait-wrapper { display: block !important; }
             .hero-container { display: flex; flex-direction: column; }
             .nav-trigger { top: 20px; right: 20px; background: white; padding: 8px 14px; }
             .carousel-heading { display: block; text-align: center; letter-spacing: 3px; }
-            .picks-grid { grid-template-columns: 1fr; }
             .connect-bento { grid-template-columns: 1fr; gap: 30px; }
-            
-            /* --- UNIVERSAL MOBILE PHOTO HIDE --- */
-            .portrait-container { display: none !important; } /* Hides all portrait containers on mobile... */
-            .bio-text-wrapper .portrait-container:first-child { display: block !important; } /* ...EXCEPT for the first one in the bio! */
-            
             .contact-card { padding: 50px 25px; }
             #nhCarousel .carousel-slide img { height: 280px; }
+            .picks-grid { grid-template-columns: 1fr; gap: 15px; }
         }
     </style>
 </head>
@@ -237,7 +233,7 @@
                     <p style="font-weight: 300;">I’ll find you the perfect roof, then make sure you look great under it.</p>
                 </div>
                 
-                <div class="portrait-container">
+                <div id="mobile-portrait-wrapper" class="portrait-container">
                     <div class="portrait-frame">
                         <img src="https://i.postimg.cc/wBp1N36w/Facetune-21-10-2025-15-12-56.jpg" style="width:100%">
                         <div class="overlay-content"><span class="overlay-tagline">At your assistance.</span><p class="overlay-text">Hi! I'm Johnny!</p></div>
@@ -280,10 +276,13 @@
             <div id="work-with-me-box" class="contact-card">
                 <span class="section-header">Work With Me</span>
                 <a href="javascript:void(0)" onclick="downloadVCF(this)" class="vcard-btn">SAVE CONTACT</a>
+                
                 <a href="tel:9843358772" onclick="copyToClipboard('9843358772')" class="contact-item"><span>Voice</span><span>984.335.8772</span></a>
                 <a href="sms:19843358772" onclick="copyToClipboard('19843358772')" class="contact-item"><span>Mobile</span><span style="font-weight:600">Text Johnny</span></a>
                 <a href="mailto:johnny.knapp@allentate.com" onclick="copyToClipboard('johnny.knapp@allentate.com')" class="contact-item"><span>Inquiry</span><span>Email Johnny</span></a>
+                
                 <a href="https://www.instagram.com/imj0hnny/" target="_blank" class="socials-link">View Socials</a>
+                
                 <div class="qr-wrapper">
                     <div class="qr-container-aesthetic">
                         <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://www.instagram.com/imj0hnny/" class="qr-code" alt="QR Code">
