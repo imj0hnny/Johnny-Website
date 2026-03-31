@@ -74,7 +74,6 @@
             z-index: 10004;
             display: flex; flex-direction: column; align-items: center; justify-content: center;
             clip-path: circle(0% at 100% 0%); transition: clip-path 0.8s cubic-bezier(0.77, 0, 0.175, 1);
-            border-left: 1px solid rgba(0,0,0,0.05);
         }
         #full-nav.open { clip-path: circle(150% at 100% 0%); }
 
@@ -88,7 +87,6 @@
         }
         #full-nav.open .nav-links a { opacity: 0.25; transform: translateX(0); }
         #full-nav.open .nav-links a.active { opacity: 1; font-weight: 400; text-decoration: underline; text-underline-offset: 12px; }
-        #full-nav.open .nav-links a:hover { opacity: 1; letter-spacing: 5px; }
 
         .close-nav { position: absolute; top: 35px; right: 40px; font-size: 0.7rem; letter-spacing: 4px; text-transform: uppercase; color: var(--accent-charcoal); cursor: pointer; }
 
@@ -155,11 +153,15 @@
         .qr-wrapper { margin-top: 45px; text-align: center; padding-top: 30px; border-top: 1px solid #f5f2f0; }
         .qr-code { width: 90px; height: 90px; opacity: 0.85; }
 
-        /* --- CAROUSELS --- */
-        .portfolio-carousel { width: 100%; max-width: 500px; position: relative; overflow: hidden; border: 8px solid white; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: all 0.4s ease; z-index: 5; }
+        /* --- CAROUSELS (MOBILE FIXES) --- */
+        .portfolio-carousel { 
+            width: 100%; max-width: 500px; position: relative; overflow: hidden; 
+            border: 8px solid white; box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
+            transition: all 0.4s ease; z-index: 5; pointer-events: auto !important;
+        }
         .carousel-track { display: flex; transition: transform 0.8s cubic-bezier(0.65, 0, 0.35, 1); }
-        .carousel-slide { min-width: 100%; position: relative; }
-        .carousel-slide a { display: block; width: 100%; height: 100%; cursor: pointer; position: relative; z-index: 10; }
+        .carousel-slide { min-width: 100%; position: relative; pointer-events: auto !important; }
+        .carousel-slide a { display: block; width: 100%; height: 100%; cursor: pointer; position: relative; z-index: 20 !important; pointer-events: auto !important; }
         
         #nhCarousel .carousel-slide img { width: 100%; height: 350px; object-fit: cover; display: block; }
         #salonCarousel .carousel-slide img { width: 100%; height: auto; object-fit: contain; display: block; }
@@ -193,9 +195,12 @@
             .carousel-heading { display: block; text-align: center; letter-spacing: 3px; }
             .picks-grid { grid-template-columns: 1fr; }
             .connect-bento { grid-template-columns: 1fr; gap: 30px; }
-            /* HIDE NEW PHOTO ON MOBILE */
+            /* HIDE SECOND PHOTO ON MOBILE */
             .connect-bento .portrait-container { display: none !important; }
+            .mobile-hide { display: none !important; }
             .contact-card { padding: 50px 25px; }
+            /* CAROUSEL MOBILE HEIGHT STABILITY */
+            #nhCarousel .carousel-slide img { height: 280px; }
         }
     </style>
 </head>
@@ -276,13 +281,10 @@
             <div id="work-with-me-box" class="contact-card">
                 <span class="section-header">Work With Me</span>
                 <a href="javascript:void(0)" onclick="downloadVCF(this)" class="vcard-btn">SAVE CONTACT</a>
-                
                 <a href="tel:9843358772" onclick="copyToClipboard('9843358772')" class="contact-item"><span>Voice</span><span>984.335.8772</span></a>
                 <a href="sms:19843358772" onclick="copyToClipboard('19843358772')" class="contact-item"><span>Mobile</span><span style="font-weight:600">Text Johnny</span></a>
                 <a href="mailto:johnny.knapp@allentate.com" onclick="copyToClipboard('johnny.knapp@allentate.com')" class="contact-item"><span>Inquiry</span><span>Email Johnny</span></a>
-                
                 <a href="https://www.instagram.com/imj0hnny/" target="_blank" class="socials-link">View Socials</a>
-                
                 <div class="qr-wrapper">
                     <div class="qr-container-aesthetic">
                         <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://www.instagram.com/imj0hnny/" class="qr-code" alt="QR Code">
@@ -367,11 +369,7 @@
         const absoluteElementTop = elementRect.top + window.pageYOffset;
         const middleOffset = (window.innerHeight / 2) - (elementRect.height / 2);
         const targetPosition = absoluteElementTop - middleOffset;
-
-        window.scrollTo({
-            top: targetPosition,
-            behavior: 'smooth'
-        });
+        window.scrollTo({ top: targetPosition, behavior: 'smooth' });
     }
 
     document.addEventListener('mousemove', (e) => {
@@ -381,15 +379,6 @@
         }
     });
 
-    function updateCursorTargets() {
-        if(window.innerWidth > 949) {
-            document.querySelectorAll('a, button, .contact-item, .nav-trigger, .close-nav').forEach(el => {
-                el.addEventListener('mouseenter', () => cursor.classList.add('cursor-bounce'));
-                el.addEventListener('mouseleave', () => cursor.classList.remove('cursor-bounce'));
-            });
-        }
-    }
-
     function showToast(message) {
         const toast = document.getElementById('copy-toast');
         toast.innerText = message;
@@ -397,11 +386,9 @@
         setTimeout(() => toast.classList.remove('show'), 2500);
     }
 
-    function copyToClipboard(text) {
-        navigator.clipboard.writeText(text).then(() => showToast("Copied to Clipboard"));
-    }
+    function copyToClipboard(text) { navigator.clipboard.writeText(text).then(() => showToast("Copied to Clipboard")); }
 
-    function downloadVCF(btn) {
+    function downloadVCF() {
         const vcfData = ['BEGIN:VCARD','VERSION:3.0','FN:Johnny Knapp','ORG:Allen Tate Realtors','TITLE:Real Estate Advisor','TEL;TYPE=CELL:9843358772','EMAIL:johnny.knapp@allentate.com','URL:https://www.instagram.com/imj0hnny/','END:VCARD'].join('\n');
         const blob = new Blob([vcfData], { type: 'text/vcard' });
         const url = window.URL.createObjectURL(blob);
@@ -429,8 +416,11 @@
         carouselConfigs.forEach(config => {
             const el = document.getElementById(config.id);
             if(el) {
+                // Combined Desktop/Mobile pause logic
                 el.addEventListener('mouseenter', () => state.isPaused = true);
                 el.addEventListener('mouseleave', () => state.isPaused = false);
+                el.addEventListener('touchstart', () => state.isPaused = true, {passive: true});
+                el.addEventListener('touchend', () => state.isPaused = false, {passive: true});
             }
         });
     }
@@ -449,7 +439,6 @@
             if (scrollPos >= section.offsetTop && scrollPos < section.offsetTop + section.offsetHeight) {
                 document.body.style.background = section.getAttribute('data-bg');
                 document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
-                
                 if(section.id === 'bio-section') document.getElementById('link-bio').classList.add('active');
                 if(section.id === 'connect-section') document.getElementById('link-connect').classList.add('active');
                 if(section.id === 'local-section') document.getElementById('link-local').classList.add('active');
@@ -464,7 +453,13 @@
 
     document.addEventListener('DOMContentLoaded', () => {
         initSyncCarousels([{ id: 'nhCarousel', slides: 4 }, { id: 'salonCarousel', slides: 3 }], 2000);
-        updateCursorTargets();
+        // Enable Desktop cursor bounce
+        if(window.innerWidth > 949) {
+            document.querySelectorAll('a, button, .contact-item, .nav-trigger, .close-nav').forEach(el => {
+                el.addEventListener('mouseenter', () => cursor.classList.add('cursor-bounce'));
+                el.addEventListener('mouseleave', () => cursor.classList.remove('cursor-bounce'));
+            });
+        }
     });
 </script>
 
