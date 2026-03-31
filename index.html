@@ -96,7 +96,6 @@
         /* Carousels */
         .carousel-heading { font-family: 'Tenor Sans', sans-serif; text-transform: uppercase; letter-spacing: 4px; font-size: 1rem; margin-bottom: 25px; color: var(--text-main); display: inline-block; border-bottom: 1px solid #dcd7d3; }
         .portfolio-carousel { width: 100%; max-width: 500px; position: relative; overflow: hidden; cursor: grab; }
-        .portfolio-carousel:active { cursor: grabbing; }
         
         .carousel-track { 
             display: flex; 
@@ -135,17 +134,14 @@
             .hero-container { grid-template-columns: 1.1fr 0.9fr; gap: 100px; }
             .contact-sidebar { position: sticky; top: 80px; height: fit-content; }
             .salon-section { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 100px; margin-top: 100px; border-top: 1px solid #e0dbd7; padding-top: 80px; }
-            /* Desktop Hide of the duplicated mobile portrait */
             .bio-text-wrapper .portrait-container { display: none; }
         }
 
         @media (max-width: 949px) {
             .contact-sidebar .portrait-container { display: none; }
-            /* Hide the original sidebar location on mobile so it can be re-ordered */
             .contact-sidebar { display: none; }
             .bio-text-wrapper { display: flex; flex-direction: column; }
             
-            /* Specific Order */
             .title-group { order: 1; }
             .top-quote { order: 2; }
             .portrait-container { order: 3; }
@@ -154,7 +150,6 @@
             .local-picks { order: 6; }
         }
         
-        /* Utility to show contact card only on mobile inside the flow */
         .contact-card-mobile { display: none; }
     </style>
 </head>
@@ -263,7 +258,7 @@
             
             <div style="margin-bottom: 35px;">
                 <p style="font-family: 'Tenor Sans', sans-serif; font-size: 1.6rem; line-height: 1.3; margin-bottom: 10px; color: var(--text-main);">"Life's too short for bad houses or bad hair."</p>
-                <p style="font-weight: 300; font-size: 1.05rem; color: var(--text-main); line-height: 1.5;">I’ll find you the perfect roof, then make sure you look great under it.</p>
+                <p style="font-weight: 300; font-size: 1.25rem; color: var(--text-main); line-height: 1.5;">I’ll find you the perfect roof, then make sure you look great under it.</p>
             </div>
             
             <a href="https://salonbluhair.com/brier-creek" target="_blank" class="salon-btn">BOOK APPOINTMENT</a>
@@ -284,20 +279,8 @@
 </div>
 
 <script>
-    // vCard Generator
     function downloadVCF() {
-        const vcfData = [
-            'BEGIN:VCARD',
-            'VERSION:3.0',
-            'FN:Johnny Knapp',
-            'ORG:Allen Tate Realtors',
-            'TITLE:Real Estate Advisor',
-            'TEL;TYPE=CELL:9843358772',
-            'EMAIL:johnny.knapp@allentate.com',
-            'URL:https://www.instagram.com/imj0hnny/',
-            'END:VCARD'
-        ].join('\n');
-
+        const vcfData = ['BEGIN:VCARD','VERSION:3.0','FN:Johnny Knapp','ORG:Allen Tate Realtors','TITLE:Real Estate Advisor','TEL;TYPE=CELL:9843358772','EMAIL:johnny.knapp@allentate.com','URL:https://www.instagram.com/imj0hnny/','END:VCARD'].join('\n');
         const blob = new Blob([vcfData], { type: 'text/vcard' });
         const url = window.URL.createObjectURL(blob);
         const newLink = document.createElement('a');
@@ -306,11 +289,9 @@
         newLink.click();
     }
 
-    // Carousel Controller with Pause-on-Hover
     function initSyncCarousels(carouselConfigs, intervalTime) {
         let index = 0;
         let isPaused = false;
-
         const timer = setInterval(() => {
             if (!isPaused) {
                 index++;
@@ -323,7 +304,6 @@
                 });
             }
         }, intervalTime);
-
         carouselConfigs.forEach(config => {
             const el = document.getElementById(config.id);
             if (el) {
@@ -334,10 +314,7 @@
     }
 
     document.addEventListener('DOMContentLoaded', () => {
-        initSyncCarousels([
-            { id: 'nhCarousel', slides: 4 },
-            { id: 'salonCarousel', slides: 3 }
-        ], 3000);
+        initSyncCarousels([{ id: 'nhCarousel', slides: 4 }, { id: 'salonCarousel', slides: 3 }], 3000);
     });
 </script>
 
