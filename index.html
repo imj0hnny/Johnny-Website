@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Johnny Knapp | Real Estate Advisor</title>
+    
+    <link rel="icon" type="image/jpg" href="https://i.postimg.cc/ncX3Kcp5/Facetune-30-03-2026-12-58-14.jpg">
+    <link rel="apple-touch-icon" href="https://i.postimg.cc/ncX3Kcp5/Facetune-30-03-2026-12-58-14.jpg">
+
     <link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Montserrat:wght@200;300;400;600&family=Allison&display=swap" rel="stylesheet">
     
     <style>
@@ -16,310 +20,294 @@
         }
 
         * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
 
         body { 
             margin: 0; 
-            padding: 80px 20px; 
+            padding: 40px 20px 110px 20px; 
             background-color: var(--bg-champagne); 
             color: var(--text-main); 
             font-family: 'Montserrat', sans-serif;
             -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
         }
         
-        .bio-container {
+        .main-wrapper {
+            max-width: 1150px;
+            margin: 0 auto;
+        }
+
+        /* --- HERO GRID --- */
+        .hero-container {
             display: grid;
             grid-template-columns: 1fr;
             gap: 60px;
-            max-width: 1100px;
-            margin: 0 auto;
-            align-items: start;
+            margin-bottom: 80px;
         }
-
-        /* --- LEFT COLUMN: CONTENT --- */
-        .title-group { margin-bottom: 40px; }
 
         .subtitle {
             font-size: 0.65rem;
             text-transform: uppercase;
-            letter-spacing: 6px;
+            letter-spacing: 5px;
             color: var(--text-muted);
             display: block;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
         }
 
         .title {
             font-family: 'Tenor Sans', sans-serif;
-            font-size: clamp(2.8rem, 8vw, 4rem);
+            font-size: clamp(3rem, 10vw, 4.2rem);
             font-weight: 400;
             margin: 0;
-            letter-spacing: -1.5px;
-            line-height: 1;
+            line-height: 0.95;
+            letter-spacing: -1px;
         }
 
-        .bio-text p { 
-            font-weight: 300;
-            line-height: 2.1; 
-            margin-bottom: 30px; 
-            font-size: 0.95rem; 
-            color: var(--text-main);
-            max-width: 580px;
+        .top-quote {
+            margin: 30px 0 45px 0;
+            max-width: 600px;
         }
 
-        .signature {
-            font-family: 'Allison', cursive;
-            font-size: 7rem;
-            margin-top: -40px;
-            margin-left: 5%;
-            color: var(--accent-charcoal);
-            opacity: 0;
-            animation: fadeIn 2s ease forwards 1s;
-        }
+        .bio-text p { font-weight: 300; line-height: 2.1; margin-bottom: 25px; font-size: 0.95rem; }
+        .signature { font-family: 'Allison', cursive; font-size: 6.5rem; margin-top: -30px; margin-bottom: 0px; color: var(--accent-charcoal); }
 
-        /* Lifestyle Section */
-        .local-picks {
-            margin-top: 80px;
-            border-top: 1px solid #e0dbd7;
-            padding-top: 50px;
-            max-width: 580px;
-        }
-
-        .picks-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-top: 30px;
-        }
-
-        .pick-item span {
-            font-size: 0.6rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--text-muted);
-        }
-
-        .pick-item p {
-            font-size: 0.9rem;
-            margin: 5px 0;
-            font-weight: 400;
-        }
-
-        .pick-item small {
-            font-size: 0.75rem;
-            color: #aaa;
-            font-weight: 300;
-        }
-
-        /* --- RIGHT COLUMN: MEDIA & CONTACT --- */
-        .bio-media { display: flex; flex-direction: column; gap: 40px; }
-
-        /* Interactive Portrait */
-        .portrait-container { position: relative; cursor: pointer; }
-        
+        /* Portraits */
         .portrait-frame {
             position: relative;
             background: white;
             padding: 12px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.04);
             overflow: hidden;
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            transition: transform 0.4s ease;
         }
-
-        .portrait-container:hover .portrait-frame {
-            transform: translateY(-8px);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.08);
-        }
-
+        .portrait-frame:hover { transform: translateY(-8px); }
         .overlay-content {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            position: absolute; bottom: 0; left: 0; width: 100%; height: 100%;
             background: linear-gradient(to bottom, transparent 40%, rgba(247, 243, 240, 0.98));
-            padding: 40px;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            opacity: 0;
-            transition: opacity 0.5s ease;
-            box-sizing: border-box;
+            padding: 40px; display: flex; flex-direction: column; justify-content: flex-end;
+            opacity: 0; transition: opacity 0.5s ease;
         }
+        .portrait-frame:hover .overlay-content { opacity: 1; }
+        .overlay-text { font-family: 'Tenor Sans', sans-serif; font-size: 2rem; margin: 0; color: var(--text-main); }
 
-        .portrait-container:hover .overlay-content { opacity: 1; }
+        /* North Hills & Carousels */
+        .local-picks { margin-top: 100px; border-top: 1px solid #e0dbd7; padding-top: 50px; }
+        .picks-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 30px; margin-bottom: 40px;}
+        .pick-item { text-decoration: none; color: inherit; display: block; }
+        .pick-item span { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); }
+        .pick-item p { font-size: 0.9rem; margin: 5px 0; font-weight: 400; }
 
-        .overlay-subtitle {
-            font-size: 0.6rem;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            color: var(--text-muted);
-            margin-bottom: 5px;
+        .carousel-heading { font-family: 'Tenor Sans', sans-serif; text-transform: uppercase; letter-spacing: 4px; font-size: 1rem; margin-bottom: 25px; color: var(--text-main); display: inline-block; border-bottom: 1px solid #dcd7d3; }
+        .portfolio-carousel { width: 100%; max-width: 500px; position: relative; overflow: hidden; display: none; }
+        .carousel-track { display: flex; transition: transform 1s cubic-bezier(0.165, 0.84, 0.44, 1); }
+        .carousel-slide { min-width: 100%; display: flex; justify-content: center; align-items: center; }
+        .carousel-slide a { display: block; width: 100%; }
+        .carousel-slide img { width: 100%; height: auto; object-fit: contain; display: block; transition: opacity 0.3s; cursor: pointer; }
+        .carousel-slide img:hover { opacity: 0.85; }
+
+        /* Buttons */
+        .vcard-btn, .salon-btn { 
+            display: block; 
+            background: var(--accent-charcoal); 
+            color: #fff; 
+            text-align: center; 
+            padding: 20px; 
+            text-decoration: none; 
+            font-size: 0.75rem; 
+            letter-spacing: 3px; 
+            font-weight: 600; 
+            margin-bottom: 15px; 
+            transition: all 0.3s ease;
+            border: 1px solid var(--accent-charcoal);
         }
-
-        .overlay-text {
-            font-family: 'Tenor Sans', sans-serif;
-            font-size: 2rem;
-            margin: 0;
-            color: var(--text-main);
-            letter-spacing: -1px;
-        }
+        .salon-btn { width: 100%; max-width: 320px; margin-bottom: 40px; }
+        .salon-btn:hover { background: transparent; color: var(--accent-charcoal); }
 
         /* Contact Card */
-        .contact-card { 
-            background: var(--card-white); 
-            padding: 50px 40px;
-            box-shadow: 0 15px 45px rgba(0,0,0,0.03);
+        .contact-card { background: var(--card-white); padding: 50px 40px; box-shadow: 0 15px 45px rgba(0,0,0,0.03); }
+        .section-header { font-family: 'Tenor Sans', sans-serif; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px; display: block; border-bottom: 1px solid #f0f0f0; padding-bottom: 10px; }
+        .share-btn { background: none; border: 1px solid #e0dbd7; color: var(--text-muted); width: 100%; padding: 14px; font-size: 0.65rem; letter-spacing: 2px; cursor: pointer; text-transform: uppercase; margin-bottom: 30px; }
+        .contact-item { display: flex; justify-content: space-between; padding: 18px 0; border-bottom: 1px solid #f5f2f0; text-decoration: none; color: var(--text-main); font-size: 0.85rem; }
+        
+        /* UI Elements */
+        .floating-call {
+            position: fixed; bottom: 30px; right: 30px; width: 65px; height: 65px;
+            background: var(--accent-charcoal); color: white; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2); z-index: 1000; text-decoration: none;
+        }
+        .floating-call svg { width: 24px; height: 24px; fill: currentColor; }
+
+        .back-to-top {
+            position: fixed; bottom: 105px; right: 37px; width: 50px; height: 50px;
+            background: white; color: var(--accent-charcoal); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1); z-index: 999; text-decoration: none;
+            opacity: 0; visibility: hidden; transition: all 0.3s ease;
+        }
+        .back-to-top.visible { opacity: 1; visibility: visible; }
+        .back-to-top svg { width: 18px; height: 18px; fill: currentColor; }
+
+        .witty-footer {
+            margin-top: 20px;
+            text-align: left;
+            max-width: 480px;
         }
 
-        .vcard-btn {
-            display: block;
-            background: var(--accent-charcoal);
-            color: #fff;
-            text-align: center;
-            padding: 20px;
-            text-decoration: none;
-            font-size: 0.75rem;
-            letter-spacing: 3px;
-            font-weight: 600;
-            margin-bottom: 40px;
-            transition: opacity 0.3s;
-        }
-        .vcard-btn:hover { opacity: 0.8; }
-
-        .contact-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-            border-bottom: 1px solid #f2efed;
-            text-decoration: none;
-            color: var(--text-main);
-            font-size: 0.85rem;
-            transition: padding-left 0.3s ease;
-        }
-        .contact-item:hover { padding-left: 5px; color: var(--text-muted); }
-
-        .contact-label {
-            font-size: 0.65rem;
-            text-transform: uppercase;
-            letter-spacing: 2.5px;
-            color: var(--text-muted);
-        }
-
-        /* QR Styling */
-        .qr-link { text-decoration: none; display: block; margin-top: 50px; }
-        .qr-section { text-align: center; opacity: 0.5; transition: 0.3s; }
-        .qr-link:hover .qr-section { opacity: 1; transform: scale(1.05); }
-        .qr-img { width: 100px; mix-blend-mode: multiply; }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Desktop Adjustments */
+        /* Desktop Grid */
         @media (min-width: 950px) {
-            .bio-container { grid-template-columns: 1.1fr 0.9fr; gap: 100px; }
-            body { padding: 120px 60px; }
+            body { padding: 100px 80px; }
+            .floating-call { display: none; }
+            .back-to-top { bottom: 40px; right: 40px; }
+            .hero-container { grid-template-columns: 1.1fr 0.9fr; gap: 100px; }
+            .contact-sidebar { position: sticky; top: 100px; height: fit-content; }
+            .salon-section { grid-template-columns: 1.1fr 0.9fr; display: grid; gap: 100px; }
         }
     </style>
 </head>
-<body>
+<body id="top">
 
-<div class="bio-container">
+<a href="#top" class="back-to-top" id="backToTop"><svg viewBox="0 0 24 24"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg></a>
+<a href="tel:9843358772" class="floating-call"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></a>
+
+<div class="main-wrapper">
     
-    <div class="bio-content">
-        <div class="title-group">
-            <span class="subtitle">Real Estate Advisor</span>
-            <h1 class="title">Johnny Knapp</h1>
+    <div class="hero-container">
+        <div class="bio-text-wrapper">
+            <div class="title-group">
+                <span class="subtitle">Real Estate Advisor</span>
+                <h1 class="title">Johnny Knapp</h1>
+            </div>
+
+            <div class="top-quote">
+                <p style="font-family: 'Tenor Sans', sans-serif; font-size: 1.6rem; color: var(--text-main); margin-bottom: 10px; line-height: 1.3;">
+                    "Life's too short for bad houses or bad hair."
+                </p>
+                <p style="font-size: 1.05rem; color: var(--text-main); letter-spacing: 0.5px; font-weight: 300;">
+                    I’ll find you the perfect roof, then make sure you look great under it.
+                </p>
+            </div>
+
+            <div class="bio-text">
+                <p>I’m an approachable 'server' at heart who loves making the moving process feel as good as the result. My goal is simple: I want you to feel completely taken care of while I handle the high-stakes side of your transaction. I’m genuinely invested in seeing my clients succeed—and I’ll be cheering the loudest when we close!</p>
+                <p>I offer a unique blend of technical precision and high-touch service; <strong>imagine a Golden Retriever, but it understands Escrow.</strong> My background as a Premier Real Estate Agent and Master Stylist/Redken National Ambassador has forged a dual mastery in disciplined transactions and intuitive client relations.</p>
+                <p>Off the clock, I trade the professional precision for a dry martini and some quality gabbing. I’m a coastal NC soul living in North Hills with my partner Hunter and our two pups, Blayden and Brody. If you see me at La Terrazza, come say hi!</p>
+                <div class="signature">Johnny</div>
+            </div>
+
+            <div class="local-picks">
+                <span class="subtitle" style="font-size: 0.55rem;">Local Favorites</span>
+                <h3 style="font-family: 'Tenor Sans', sans-serif; font-weight: 400; font-size: 1.6rem; margin: 10px 0 10px 0;">The North Hills Edit</h3>
+                <div class="picks-grid">
+                    <a href="https://laterrazzaraleigh.com/" target="_blank" class="pick-item"><span>Aperitivo</span><p>La Terrazza</p></a>
+                    <a href="https://www.carolinabeach.gov/35/Discover-CB" target="_blank" class="pick-item"><span>Escapism</span><p>Carolina Beach</p></a>
+                    <a href="https://www.thewillardraleigh.com/" target="_blank" class="pick-item"><span>Vibe</span><p>The Willard</p></a>
+                    <a href="https://raleighparks.org/2011/06/01/lassiter-mill-park/#google_vignette" target="_blank" class="pick-item"><span>Dog Friendly</span><p>Lassiter Mill</p></a>
+                </div>
+
+                <h4 class="carousel-heading">Johnny's Favorites</h4>
+                <div class="portfolio-carousel" id="nhCarousel">
+                    <div class="carousel-track">
+                        <div class="carousel-slide"><a href="https://www.thewillardraleigh.com/" target="_blank"><img src="https://i.postimg.cc/8zBRmCP6/Screenshot-2026-03-31-at-10-56-29-AM.png"></a></div>
+                        <div class="carousel-slide"><a href="https://laterrazzaraleigh.com/" target="_blank"><img src="https://i.postimg.cc/VsVDSzWz/Screenshot-2026-03-31-at-10-59-41-AM.png"></a></div>
+                        <div class="carousel-slide"><a href="https://www.carolinabeach.gov/35/Discover-CB" target="_blank"><img src="https://i.postimg.cc/hjbvk44b/Screenshot-2026-03-31-at-11-01-46-AM.png"></a></div>
+                        <div class="carousel-slide"><a href="https://raleighparks.org/2011/06/01/lassiter-mill-park/#google_vignette" target="_blank"><img src="https://i.postimg.cc/hGv04wQf/Screenshot-2026-03-31-at-11-00-41-AM.png"></a></div>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div class="bio-text">
-            <p>I’m an approachable 'server' at heart who loves making the moving process feel as good as the result. My goal is simple: I want you to feel completely taken care of while I handle the high-stakes side of your transaction. I’m genuinely invested in seeing my clients succeed—and I’ll be cheering the loudest when we close!</p>
-            
-            <p>I offer a unique blend of technical precision and high-touch service; <strong>imagine a Golden Retriever, but it understands Escrow.</strong> My background as a Premier Real Estate Agent and Master Stylist/Redken National Ambassador has forged a dual mastery in disciplined transactions and intuitive client relations. I guide my clients with an elite level of performance, but I never lose sight of the human connection.</p>
+        <div class="contact-sidebar">
+            <div class="portrait-container" style="margin-bottom: 40px;">
+                <div class="portrait-frame">
+                    <img src="https://i.postimg.cc/ncX3Kcp5/Facetune-30-03-2026-12-58-14.jpg" style="width:100%" alt="Johnny Knapp">
+                    <div class="overlay-content"><p class="overlay-text">Hi! I'm Johnny!</p></div>
+                </div>
+            </div>
 
-            <p>Off the clock, I trade the professional precision for a dry martini and some quality gabbing. I’m a coastal NC soul living in North Hills with my partner Hunter and our two pups, Blayden and Brody. I’m a beach bum at my core, but Raleigh has won me over—mostly thanks to the arancini at La Terrazza. If you see me there, come say hi; I’m the guy who never really turns off his laugh.</p>
-            
-            <div class="signature">Johnny</div>
-        </div>
-
-        <div class="local-picks">
-            <span class="subtitle" style="font-size: 0.55rem; letter-spacing: 4px;">Local Favorites</span>
-            <h3 style="font-family: 'Tenor Sans', sans-serif; font-weight: 400; font-size: 1.6rem; margin: 15px 0 10px 0;">The North Hills Edit</h3>
-            
-            <div class="picks-grid">
-                <div class="pick-item">
-                    <span>Aperitivo</span>
-                    <p>La Terrazza</p>
-                    <small>Order the Arancini.</small>
-                </div>
-                <div class="pick-item">
-                    <span>Escapism</span>
-                    <p>Carolina Beach</p>
-                    <small>A coastal soul's retreat.</small>
-                </div>
-                <div class="pick-item">
-                    <span>Vibe</span>
-                    <p>The Willard</p>
-                    <small>Best views (and Balayage talk).</small>
-                </div>
-                <div class="pick-item">
-                    <span>Dog Friendly</span>
-                    <p>Lassiter Mill</p>
-                    <small>For Blayden and Brody.</small>
+            <div class="contact-card">
+                <span class="section-header">Work With Me</span>
+                <a href="#" class="vcard-btn">SAVE CONTACT</a>
+                <button class="share-btn" onclick="copyProfileLink()" id="shareBtn">Share Profile Link</button>
+                <a href="tel:9843358772" class="contact-item"><span>Voice</span><span>984.335.8772</span></a>
+                <a href="sms:19843358772" class="contact-item"><span>Mobile</span><span style="font-weight:600">Text Johnny</span></a>
+                <a href="mailto:johnny.knapp@allentate.com" class="contact-item"><span>Inquiry</span><span>Email Johnny</span></a>
+                
+                <div class="qr-section" style="text-align: center; margin-top: 40px; opacity: 0.5;">
+                    <img src="https://i.postimg.cc/J021v36G/QR-Code.jpg" style="width: 100px; mix-blend-mode: multiply;">
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="bio-media">
-        <div class="portrait-container">
-            <div class="portrait-frame">
-                <img src="https://i.postimg.cc/ncX3Kcp5/Facetune-30-03-2026-12-58-14.jpg" 
-                     style="width:100%; display:block;" alt="Johnny Knapp Portrait">
-                
-                <div class="overlay-content">
-                    <span class="overlay-subtitle">At Your Service</span>
-                    <p class="overlay-text">Hi! I'm Johnny!</p>
+    <div class="salon-section" style="border-top: 1px solid #e0dbd7; padding-top: 80px;">
+        <div class="salon-info">
+            <span class="section-header">Salon Inquiry</span>
+            <h2 style="font-family: 'Tenor Sans', sans-serif; font-size: 1.8rem; margin-bottom: 15px;">The Master Stylist</h2>
+            <p style="font-weight: 300; font-size: 0.95rem; color: var(--text-muted); margin-bottom: 35px; line-height: 1.8;">Experience the dual mastery of intuition and technical precision at my chair. Visit the Salon Blu Brier Creek site to book your session.</p>
+            
+            <a href="https://salonbluhair.com/brier-creek" target="_blank" class="salon-btn">BOOK APPOINTMENT</a>
+
+            <div class="witty-footer">
+                <p style="font-family: 'Tenor Sans', sans-serif; font-size: 1.8rem; color: var(--text-main); margin-bottom: 15px; line-height: 1.3; font-weight: 400;">
+                    "Life's too short for bad houses or bad hair."
+                </p>
+                <p style="font-size: 1.05rem; color: var(--text-main); letter-spacing: 0.5px; font-weight: 300; margin-bottom: 40px; line-height: 1.5;">
+                    I’ll find you the perfect roof, then make sure you look great under it.
+                </p>
+                <div style="opacity: 0.3; font-size: 9px; letter-spacing: 3px; text-transform: uppercase;">
+                    © 2026 Johnny Knapp • Raleigh, NC
                 </div>
             </div>
         </div>
         
-        <div class="contact-card">
-            <a href="https://drive.google.com/uc?export=download&id=1IcqPrkP5l7VlinzQxgaMfX4nJeDn9SNl" class="vcard-btn">
-                SAVE CONTACT
-            </a>
-
-            <a href="tel:9843358772" class="contact-item">
-                <span class="contact-label">Voice</span>
-                <span>984.335.8772</span>
-            </a>
-
-            <a href="sms:19843358772?&body=Hi Johnny! I'd love to connect regarding real estate." class="contact-item">
-                <span class="contact-label">Mobile</span>
-                <span style="font-weight:600">Text Johnny</span>
-            </a>
-
-            <a href="mailto:johnny.knapp@allentate.com" class="contact-item">
-                <span class="contact-label">Inquiry</span>
-                <span>Send Email</span>
-            </a>
-
-            <a href="https://www.instagram.com/imj0hnny/" target="_blank" class="contact-item">
-                <span class="contact-label">Social</span>
-                <span>@imj0hnny</span>
-            </a>
-
-            <a href="https://www.instagram.com/imj0hnny/" target="_blank" class="qr-link">
-                <div class="qr-section">
-                    <img src="https://i.postimg.cc/J021v36G/QR-Code.jpg" class="qr-img" alt="QR Code Link">
-                    <p style="font-size: 9px; letter-spacing: 3px; color: #8a837e; margin-top: 15px; text-transform: uppercase;">Tap to Share</p>
+        <div class="salon-portfolio">
+            <h4 class="carousel-heading">Hair Portfolio</h4>
+            <div class="portfolio-carousel" id="salonCarousel">
+                <div class="carousel-track">
+                    <div class="carousel-slide"><a href="https://salonbluhair.com/brier-creek" target="_blank"><img src="https://i.postimg.cc/K818NqNX/IMG-2830.jpg"></a></div>
+                    <div class="carousel-slide"><a href="https://salonbluhair.com/brier-creek" target="_blank"><img src="https://i.postimg.cc/5tw17ZQR/IMG-3555.jpg"></a></div>
+                    <div class="carousel-slide"><a href="https://salonbluhair.com/brier-creek" target="_blank"><img src="https://i.postimg.cc/1zchcwLR/IMG-3911.jpg"></a></div>
+                    <div class="carousel-slide"><a href="https://salonbluhair.com/brier-creek" target="_blank"><img src="https://i.postimg.cc/vmyCBDcT/IMG-4062.jpg"></a></div>
                 </div>
-            </a>
+            </div>
         </div>
     </div>
 </div>
+
+<script>
+    function copyProfileLink() {
+        const btn = document.getElementById('shareBtn');
+        navigator.clipboard.writeText(window.location.href).then(() => {
+            btn.innerText = "Link Copied!";
+            setTimeout(() => { btn.innerText = "Share Profile Link"; }, 2000);
+        });
+    }
+
+    window.addEventListener('scroll', function() {
+        const btn = document.getElementById('backToTop');
+        if (window.pageYOffset > 500) btn.classList.add('visible');
+        else btn.classList.remove('visible');
+    });
+
+    function initSyncCarousels(carouselIds, speed) {
+        let index = 0;
+        const trackers = carouselIds.map(id => {
+            const el = document.getElementById(id);
+            el.style.display = 'block';
+            return el.querySelector('.carousel-track');
+        });
+        setInterval(() => {
+            index = (index + 1) % 4;
+            trackers.forEach(track => {
+                track.style.transform = `translateX(-${index * 100}%)`;
+            });
+        }, speed);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        initSyncCarousels(['nhCarousel', 'salonCarousel'], 4000);
+    });
+</script>
 
 </body>
 </html>
