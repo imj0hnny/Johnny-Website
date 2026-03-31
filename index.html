@@ -3,210 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Johnny Knapp | Real Estate</title>
+    <title>Johnny Knapp | Real Estate Advisor</title>
     <link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Montserrat:wght@200;300;400;600&family=Allison&display=swap" rel="stylesheet">
     
     <style>
-    :root {
-        --text-main: #1a1a1a;
-        --text-muted: #8a837e;
-        --bg-champagne: #f7f3f0;
-        --card-white: #ffffff;
-        --accent-charcoal: #222222;
-    }
+        :root {
+            --text-main: #1a1a1a;
+            --text-muted: #8a837e;
+            --bg-champagne: #f7f3f0;
+            --card-white: #ffffff;
+            --accent-charcoal: #222222;
+        }
 
-    body { 
-        margin: 0; 
-        padding: 60px 20px; 
-        background-color: var(--bg-champagne); 
-        color: var(--text-main); 
-        font-family: 'Montserrat', sans-serif;
-        -webkit-font-smoothing: antialiased;
-    }
-    
-    .bio-container {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 60px;
-        max-width: 1000px;
-        margin: 0 auto;
-        align-items: center;
-    }
+        * { box-sizing: border-box; }
 
-    .title-group { margin-bottom: 40px; }
-
-    .subtitle {
-        font-size: 0.65rem;
-        text-transform: uppercase;
-        letter-spacing: 6px;
-        color: var(--text-muted);
-        display: block;
-        margin-bottom: 12px;
-    }
-
-    .title {
-        font-family: 'Tenor Sans', sans-serif;
-        font-size: clamp(2.8rem, 8vw, 3.8rem);
-        font-weight: 400;
-        margin: 0;
-        letter-spacing: -1.5px;
-        line-height: 1;
-    }
-
-    .bio-text p { 
-        font-weight: 300;
-        line-height: 2; 
-        margin-bottom: 25px; 
-        font-size: 0.95rem; 
-        color: var(--text-main);
-        max-width: 500px;
-    }
-
-    .signature {
-        font-family: 'Allison', cursive;
-        font-size: 6.5rem;
-        margin-top: -35px;
-        margin-left: 10%;
-        color: var(--accent-charcoal);
-        opacity: 0;
-        animation: fadeIn 1.8s ease forwards 1s;
-    }
-
-    .bio-media { display: flex; flex-direction: column; gap: 30px; }
-
-    .portrait-frame {
-        background: white;
-        padding: 12px;
-        box-shadow: 0 20px 40px rgba(0,0,0,0.04);
-    }
-
-    .contact-card { 
-        background: var(--card-white); 
-        padding: 45px 35px;
-        border-radius: 0;
-        box-shadow: 0 15px 45px rgba(0,0,0,0.03);
-    }
-
-    .vcard-btn {
-        display: block;
-        background: var(--accent-charcoal);
-        color: #fff;
-        text-align: center;
-        padding: 18px;
-        text-decoration: none;
-        font-size: 0.7rem;
-        letter-spacing: 3px;
-        font-weight: 600;
-        margin-bottom: 35px;
-        transition: opacity 0.3s ease;
-    }
-    .vcard-btn:hover { opacity: 0.85; }
-
-    .contact-item {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 18px 0;
-        border-bottom: 1px solid #f0edeb;
-        text-decoration: none;
-        color: var(--text-main);
-        font-size: 0.8rem;
-        letter-spacing: 0.5px;
-        transition: color 0.3s;
-    }
-    .contact-item:hover { color: var(--text-muted); }
-
-    .contact-label {
-        font-size: 0.6rem;
-        text-transform: uppercase;
-        letter-spacing: 2.5px;
-        color: var(--text-muted);
-    }
-
-    /* Clickable QR Style */
-    .qr-link { text-decoration: none; display: block; margin-top: 50px; }
-    
-    .qr-section {
-        text-align: center;
-        opacity: 0.6;
-        transition: all 0.3s ease;
-    }
-    
-    .qr-link:hover .qr-section { opacity: 1; transform: translateY(-3px); }
-
-    .qr-img {
-        width: 90px;
-        mix-blend-mode: multiply;
-    }
-
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(15px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-
-    @media (min-width: 950px) {
-        .bio-container { grid-template-columns: 1.1fr 0.9fr; gap: 120px; }
-        body { padding: 100px 40px; }
-    }
-</style>
-</head>
-<body>
-
-<div class="bio-container">
-    <div class="bio-content">
-        <div class="title-group">
-            <span class="subtitle">Real Estate Advisor</span>
-            <h1 class="title">Johnny Knapp</h1>
-        </div>
-
-        <div class="bio-text">
-            <p>I’m an approachable 'server' at heart who loves making the moving process feel as good as the result. My goal is to make you feel completely taken care of while I handle the high-stakes side of things with surgical precision.</p>
-            <p>My background as a Premier Real Estate Agent and Master Stylist has forged a dual mastery in disciplined transactions and intuitive client relations.</p>
-            <p>Off the clock, I trade the professional precision for a dry martini and some quality gabbing. I’m a coastal NC soul living in North Hills with my partner Hunter and our two pups.</p>
-            <div class="signature">Johnny</div>
-        </div>
-    </div>
-
-    <div class="bio-media">
-        <div class="portrait-frame">
-            <img src="https://i.postimg.cc/ncX3Kcp5/Facetune-30-03-2026-12-58-14.jpg" 
-                 style="width:100%; display:block;" alt="Johnny Knapp Portrait">
-        </div>
+        body { 
+            margin: 0; 
+            padding: 80px 20px; 
+            background-color: var(--bg-champagne); 
+            color: var(--text-main); 
+            font-family: 'Montserrat', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
         
-        <div class="contact-card">
-            <a href="https://drive.google.com/uc?export=download&id=1IcqPrkP5l7VlinzQxgaMfX4nJeDn9SNl" class="vcard-btn">
-                SAVE CONTACT
-            </a>
+        .bio-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 60px;
+            max-width: 1100px;
+            margin: 0 auto;
+            align-items: start;
+        }
 
-            <a href="tel:9843358772" class="contact-item">
-                <span class="contact-label">Voice</span>
-                <span>984.335.8772</span>
-            </a>
+        /* --- LEFT COLUMN: CONTENT --- */
+        .title-group { margin-bottom: 40px; }
 
-            <a href="sms:19843358772" class="contact-item">
-                <span class="contact-label">Mobile</span>
-                <span style="font-weight:600">Text Johnny</span>
-            </a>
+        .subtitle {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            color: var(--text-muted);
+            display: block;
+            margin-bottom: 12px;
+        }
 
-            <a href="mailto:johnny.knapp@allentate.com" class="contact-item">
-                <span class="contact-label">Inquiry</span>
-                <span>Send Email</span>
-            </a>
+        .title {
+            font-family: 'Tenor Sans', sans-serif;
+            font-size: clamp(2.8rem, 8vw, 4rem);
+            font-weight: 400;
+            margin: 0;
+            letter-spacing: -1.5px;
+            line-height: 1;
+        }
 
-            <a href="https://www.instagram.com/imj0hnny/" target="_blank" class="contact-item">
-                <span class="contact-label">Social</span>
-                <span>@imj0hnny</span>
-            </a>
+        .bio-text p { 
+            font-weight: 300;
+            line-height: 2.1; 
+            margin-bottom: 30px; 
+            font-size: 0.95rem; 
+            color: var(--text-main);
+            max-width: 580px;
+        }
 
-            <a href="https://www.instagram.com/imj0hnny/" target="_blank" class="qr-link">
-                <div class="qr-section">
-                    <img src="https://i.postimg.cc/J021v36G/QR-Code.jpg" class="qr-img" alt="QR Link">
-                    <p style="font-size: 9px; letter-spacing: 3px; color: #8a837e; margin-top: 15px;">TAP TO SHARE</p>
-                </div>
-            </a>
-        </div>
-    </div>
-</div>
+        .signature {
+            font-family: 'Allison', cursive;
+            font-size: 7rem;
+            margin-top: -40px;
+            margin-left: 5%;
+            color: var(--accent-charcoal);
+            opacity: 0;
+            animation: fadeIn 2s ease forwards 1s;
+        }
 
-</body>
-</html>
+        /* Lifestyle Section */
+        .local-picks {
+            margin-top: 80px;
+            border-top: 1px solid #e0dbd7;
+            padding-top: 50px;
+            max-width: 580px;
+        }
+
+        .picks-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .pick-item span {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+        }
+
+        .pick-item p {
+            font-size: 0.9rem;
+            margin: 5px 0;
+            font-weight: 400;
+        }
+
+        .pick-item small {
+            font-size: 0.75rem;
+            color: #aaa;
+            font-weight: 300;
+        }
+
+        /* --- RIGHT COLUMN: MEDIA & CONTACT --- */
+        .bio-media { display: flex; flex-direction
