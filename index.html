@@ -153,12 +153,8 @@
         .qr-wrapper { margin-top: 45px; text-align: center; padding-top: 30px; border-top: 1px solid #f5f2f0; }
         .qr-code { width: 90px; height: 90px; opacity: 0.85; }
 
-        /* --- CAROUSELS (MOBILE FIXES) --- */
-        .portfolio-carousel { 
-            width: 100%; max-width: 500px; position: relative; overflow: hidden; 
-            border: 8px solid white; box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
-            transition: all 0.4s ease; z-index: 5; pointer-events: auto !important;
-        }
+        /* --- CAROUSELS --- */
+        .portfolio-carousel { width: 100%; max-width: 500px; position: relative; overflow: hidden; border: 8px solid white; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: all 0.4s ease; z-index: 5; pointer-events: auto !important; }
         .carousel-track { display: flex; transition: transform 0.8s cubic-bezier(0.65, 0, 0.35, 1); }
         .carousel-slide { min-width: 100%; position: relative; pointer-events: auto !important; }
         .carousel-slide a { display: block; width: 100%; height: 100%; cursor: pointer; position: relative; z-index: 20 !important; pointer-events: auto !important; }
@@ -195,11 +191,12 @@
             .carousel-heading { display: block; text-align: center; letter-spacing: 3px; }
             .picks-grid { grid-template-columns: 1fr; }
             .connect-bento { grid-template-columns: 1fr; gap: 30px; }
-            /* HIDE SECOND PHOTO ON MOBILE */
-            .connect-bento .portrait-container { display: none !important; }
-            .mobile-hide { display: none !important; }
+            
+            /* --- UNIVERSAL MOBILE PHOTO HIDE --- */
+            .portrait-container { display: none !important; } /* Hides all portrait containers on mobile... */
+            .bio-text-wrapper .portrait-container:first-child { display: block !important; } /* ...EXCEPT for the first one in the bio! */
+            
             .contact-card { padding: 50px 25px; }
-            /* CAROUSEL MOBILE HEIGHT STABILITY */
             #nhCarousel .carousel-slide img { height: 280px; }
         }
     </style>
@@ -239,12 +236,14 @@
                     <p style="font-family: 'Tenor Sans', sans-serif; font-size: 1.6rem; line-height: 1.3; margin-bottom: 10px;">"Life's too short for bad houses or bad hair."</p>
                     <p style="font-weight: 300;">I’ll find you the perfect roof, then make sure you look great under it.</p>
                 </div>
+                
                 <div class="portrait-container">
                     <div class="portrait-frame">
                         <img src="https://i.postimg.cc/wBp1N36w/Facetune-21-10-2025-15-12-56.jpg" style="width:100%">
                         <div class="overlay-content"><span class="overlay-tagline">At your assistance.</span><p class="overlay-text">Hi! I'm Johnny!</p></div>
                     </div>
                 </div>
+
                 <div class="bio-text">
                     <p>I’m an approachable 'server' at heart who loves making the moving process feel as good as the result. My goal is simple: I want you to feel completely taken care of while I handle the high-stakes side of your transaction.</p>
                     <p>I offer a unique blend of technical precision and high-touch service; <strong>imagine a Golden Retriever, but it understands Escrow.</strong> My background as a Premier Real Estate Agent and Master Stylist has forged a dual mastery in disciplined transactions and intuitive client relations.</p>
@@ -416,7 +415,6 @@
         carouselConfigs.forEach(config => {
             const el = document.getElementById(config.id);
             if(el) {
-                // Combined Desktop/Mobile pause logic
                 el.addEventListener('mouseenter', () => state.isPaused = true);
                 el.addEventListener('mouseleave', () => state.isPaused = false);
                 el.addEventListener('touchstart', () => state.isPaused = true, {passive: true});
@@ -453,7 +451,6 @@
 
     document.addEventListener('DOMContentLoaded', () => {
         initSyncCarousels([{ id: 'nhCarousel', slides: 4 }, { id: 'salonCarousel', slides: 3 }], 2000);
-        // Enable Desktop cursor bounce
         if(window.innerWidth > 949) {
             document.querySelectorAll('a, button, .contact-item, .nav-trigger, .close-nav').forEach(el => {
                 el.addEventListener('mouseenter', () => cursor.classList.add('cursor-bounce'));
