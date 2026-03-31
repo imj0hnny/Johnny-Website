@@ -31,16 +31,13 @@
             -webkit-font-smoothing: antialiased;
         }
         
-        .main-wrapper {
-            max-width: 1150px;
-            margin: 0 auto;
-        }
+        .main-wrapper { max-width: 1150px; margin: 0 auto; }
 
         /* --- HERO GRID --- */
         .hero-container {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 60px;
+            gap: 40px;
             margin-bottom: 80px;
         }
 
@@ -62,22 +59,21 @@
             letter-spacing: -1px;
         }
 
-        .top-quote {
-            margin: 30px 0 45px 0;
-            max-width: 600px;
-        }
-
+        .top-quote { margin: 30px 0 45px 0; max-width: 600px; }
         .bio-text p { font-weight: 300; line-height: 2.1; margin-bottom: 25px; font-size: 0.95rem; }
-        .signature { font-family: 'Allison', cursive; font-size: 6.5rem; margin-top: -30px; margin-bottom: 0px; color: var(--accent-charcoal); }
+        
+        .signature { 
+            font-family: 'Allison', cursive; 
+            font-size: 6.5rem; 
+            margin-top: -30px; 
+            color: var(--accent-charcoal);
+        }
 
         /* Portraits */
         .portrait-frame {
-            position: relative;
-            background: white;
-            padding: 12px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.04);
-            overflow: hidden;
-            transition: transform 0.4s ease;
+            position: relative; background: white; padding: 12px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.04); overflow: hidden;
+            transition: transform 0.4s ease; margin-bottom: 30px;
         }
         .portrait-frame:hover { transform: translateY(-8px); }
         .overlay-content {
@@ -88,89 +84,74 @@
         }
         .portrait-frame:hover .overlay-content { opacity: 1; }
         .overlay-text { font-family: 'Tenor Sans', sans-serif; font-size: 2rem; margin: 0; color: var(--text-main); }
+        .overlay-tagline { font-size: 0.55rem; text-transform: uppercase; letter-spacing: 3px; color: var(--text-muted); margin-bottom: 5px; display: block; }
 
-        /* North Hills & Carousels */
-        .local-picks { margin-top: 100px; border-top: 1px solid #e0dbd7; padding-top: 50px; }
-        .picks-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 30px; margin-bottom: 40px;}
+        /* Local Picks */
+        .local-picks { margin-top: 60px; border-top: 1px solid #e0dbd7; padding-top: 50px; }
+        .picks-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 30px; margin-bottom: 40px; }
         .pick-item { text-decoration: none; color: inherit; display: block; }
         .pick-item span { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); }
         .pick-item p { font-size: 0.9rem; margin: 5px 0; font-weight: 400; }
 
+        /* Carousels */
         .carousel-heading { font-family: 'Tenor Sans', sans-serif; text-transform: uppercase; letter-spacing: 4px; font-size: 1rem; margin-bottom: 25px; color: var(--text-main); display: inline-block; border-bottom: 1px solid #dcd7d3; }
-        .portfolio-carousel { width: 100%; max-width: 500px; position: relative; overflow: hidden; display: none; }
-        .carousel-track { display: flex; transition: transform 1s cubic-bezier(0.165, 0.84, 0.44, 1); }
-        .carousel-slide { min-width: 100%; display: flex; justify-content: center; align-items: center; }
-        .carousel-slide a { display: block; width: 100%; }
-        .carousel-slide img { width: 100%; height: auto; object-fit: contain; display: block; transition: opacity 0.3s; cursor: pointer; }
-        .carousel-slide img:hover { opacity: 0.85; }
+        .portfolio-carousel { width: 100%; max-width: 500px; position: relative; overflow: hidden; cursor: grab; }
+        .portfolio-carousel:active { cursor: grabbing; }
+        
+        .carousel-track { 
+            display: flex; 
+            transition: transform 1.2s cubic-bezier(0.65, 0, 0.35, 1); 
+        }
+        
+        .carousel-slide { min-width: 100%; }
+        .carousel-slide img { width: 100%; height: auto; object-fit: contain; display: block; }
 
         /* Buttons */
         .vcard-btn, .salon-btn { 
-            display: block; 
-            background: var(--accent-charcoal); 
-            color: #fff; 
-            text-align: center; 
-            padding: 20px; 
-            text-decoration: none; 
-            font-size: 0.75rem; 
-            letter-spacing: 3px; 
-            font-weight: 600; 
-            margin-bottom: 15px; 
-            transition: all 0.3s ease;
-            border: 1px solid var(--accent-charcoal);
+            display: block; background: var(--accent-charcoal); color: #fff; text-align: center; 
+            padding: 20px; text-decoration: none; font-size: 0.75rem; letter-spacing: 3px; 
+            font-weight: 600; margin-bottom: 15px; border: 1px solid var(--accent-charcoal); cursor: pointer;
         }
-        .salon-btn { width: 100%; max-width: 320px; margin-bottom: 40px; }
-        .salon-btn:hover { background: transparent; color: var(--accent-charcoal); }
+        .salon-btn { width: 100%; max-width: 320px; }
 
         /* Contact Card */
-        .contact-card { background: var(--card-white); padding: 50px 40px; box-shadow: 0 15px 45px rgba(0,0,0,0.03); }
+        .contact-card { background: var(--card-white); padding: 50px 40px; box-shadow: 0 15px 45px rgba(0,0,0,0.03); margin-bottom: 40px; }
         .section-header { font-family: 'Tenor Sans', sans-serif; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px; display: block; border-bottom: 1px solid #f0f0f0; padding-bottom: 10px; }
-        .share-btn { background: none; border: 1px solid #e0dbd7; color: var(--text-muted); width: 100%; padding: 14px; font-size: 0.65rem; letter-spacing: 2px; cursor: pointer; text-transform: uppercase; margin-bottom: 30px; }
         .contact-item { display: flex; justify-content: space-between; padding: 18px 0; border-bottom: 1px solid #f5f2f0; text-decoration: none; color: var(--text-main); font-size: 0.85rem; }
         
-        /* UI Elements */
-        .floating-call {
-            position: fixed; bottom: 30px; right: 30px; width: 65px; height: 65px;
-            background: var(--accent-charcoal); color: white; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2); z-index: 1000; text-decoration: none;
-        }
+        .floating-call { position: fixed; bottom: 30px; right: 30px; width: 65px; height: 65px; background: var(--accent-charcoal); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 1000; }
         .floating-call svg { width: 24px; height: 24px; fill: currentColor; }
 
-        .back-to-top {
-            position: fixed; bottom: 105px; right: 37px; width: 50px; height: 50px;
-            background: white; color: var(--accent-charcoal); border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1); z-index: 999; text-decoration: none;
-            opacity: 0; visibility: hidden; transition: all 0.3s ease;
+        .socials-link { 
+            display: block; margin-top: 15px; font-size: 0.65rem; letter-spacing: 3px; 
+            text-transform: uppercase; color: var(--text-muted); text-decoration: none; 
+            transition: color 0.3s;
         }
-        .back-to-top.visible { opacity: 1; visibility: visible; }
-        .back-to-top svg { width: 18px; height: 18px; fill: currentColor; }
+        .socials-link:hover { color: var(--accent-charcoal); }
 
-        .witty-footer {
-            margin-top: 20px;
-            text-align: left;
-            max-width: 480px;
-        }
-
-        /* Desktop Grid */
         @media (min-width: 950px) {
             body { padding: 100px 80px; }
             .floating-call { display: none; }
-            .back-to-top { bottom: 40px; right: 40px; }
             .hero-container { grid-template-columns: 1.1fr 0.9fr; gap: 100px; }
-            .contact-sidebar { position: sticky; top: 100px; height: fit-content; }
-            .salon-section { grid-template-columns: 1.1fr 0.9fr; display: grid; gap: 100px; }
+            .contact-sidebar { position: sticky; top: 80px; height: fit-content; }
+            .salon-section { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 100px; margin-top: 100px; border-top: 1px solid #e0dbd7; padding-top: 80px; }
+            .bio-text-wrapper .portrait-container { display: none; }
+        }
+
+        @media (max-width: 949px) {
+            .contact-sidebar .portrait-container { display: none; }
+            .bio-text-wrapper { display: flex; flex-direction: column; }
+            .title-group { order: -3; }
+            .top-quote { order: -2; }
+            .portrait-container { order: -1; }
         }
     </style>
 </head>
 <body id="top">
 
-<a href="#top" class="back-to-top" id="backToTop"><svg viewBox="0 0 24 24"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg></a>
 <a href="tel:9843358772" class="floating-call"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></a>
 
 <div class="main-wrapper">
-    
     <div class="hero-container">
         <div class="bio-text-wrapper">
             <div class="title-group">
@@ -179,37 +160,43 @@
             </div>
 
             <div class="top-quote">
-                <p style="font-family: 'Tenor Sans', sans-serif; font-size: 1.6rem; color: var(--text-main); margin-bottom: 10px; line-height: 1.3;">
-                    "Life's too short for bad houses or bad hair."
-                </p>
-                <p style="font-size: 1.05rem; color: var(--text-main); letter-spacing: 0.5px; font-weight: 300;">
-                    I’ll find you the perfect roof, then make sure you look great under it.
-                </p>
+                <p style="font-family: 'Tenor Sans', sans-serif; font-size: 1.6rem; line-height: 1.3; margin-bottom: 10px;">"Life's too short for bad houses or bad hair."</p>
+                <p style="font-weight: 300;">I’ll find you the perfect roof, then make sure you look great under it.</p>
+            </div>
+
+            <div class="portrait-container">
+                <div class="portrait-frame">
+                    <img src="https://i.postimg.cc/ncX3Kcp5/Facetune-30-03-2026-12-58-14.jpg" style="width:100%">
+                    <div class="overlay-content">
+                        <span class="overlay-tagline">At your assistance.</span>
+                        <p class="overlay-text">Hi! I'm Johnny!</p>
+                    </div>
+                </div>
             </div>
 
             <div class="bio-text">
-                <p>I’m an approachable 'server' at heart who loves making the moving process feel as good as the result. My goal is simple: I want you to feel completely taken care of while I handle the high-stakes side of your transaction. I’m genuinely invested in seeing my clients succeed—and I’ll be cheering the loudest when we close!</p>
-                <p>I offer a unique blend of technical precision and high-touch service; <strong>imagine a Golden Retriever, but it understands Escrow.</strong> My background as a Premier Real Estate Agent and Master Stylist/Redken National Ambassador has forged a dual mastery in disciplined transactions and intuitive client relations.</p>
+                <p>I’m an approachable 'server' at heart who loves making the moving process feel as good as the result. My goal is simple: I want you to feel completely taken care of while I handle the high-stakes side of your transaction.</p>
+                <p>I offer a unique blend of technical precision and high-touch service; <strong>imagine a Golden Retriever, but it understands Escrow.</strong> My background as a Premier Real Estate Agent and Master Stylist has forged a dual mastery in disciplined transactions and intuitive client relations.</p>
                 <p>Off the clock, I trade the professional precision for a dry martini and some quality gabbing. I’m a coastal NC soul living in North Hills with my partner Hunter and our two pups, Blayden and Brody. If you see me at La Terrazza, come say hi!</p>
                 <div class="signature">Johnny</div>
             </div>
 
             <div class="local-picks">
                 <span class="subtitle" style="font-size: 0.55rem;">Local Favorites</span>
-                <h3 style="font-family: 'Tenor Sans', sans-serif; font-weight: 400; font-size: 1.6rem; margin: 10px 0 10px 0;">The North Hills Edit</h3>
+                <h3 style="font-family: 'Tenor Sans'; font-weight: 400; font-size: 1.6rem; margin: 10px 0;">The North Hills Edit</h3>
                 <div class="picks-grid">
                     <a href="https://laterrazzaraleigh.com/" target="_blank" class="pick-item"><span>Aperitivo</span><p>La Terrazza</p></a>
                     <a href="https://www.carolinabeach.gov/35/Discover-CB" target="_blank" class="pick-item"><span>Escapism</span><p>Carolina Beach</p></a>
                     <a href="https://www.thewillardraleigh.com/" target="_blank" class="pick-item"><span>Vibe</span><p>The Willard</p></a>
                     <a href="https://raleighparks.org/2011/06/01/lassiter-mill-park/#google_vignette" target="_blank" class="pick-item"><span>Dog Friendly</span><p>Lassiter Mill</p></a>
                 </div>
-
+                
                 <h4 class="carousel-heading">Johnny's Favorites</h4>
                 <div class="portfolio-carousel" id="nhCarousel">
                     <div class="carousel-track">
-                        <div class="carousel-slide"><a href="https://www.thewillardraleigh.com/" target="_blank"><img src="https://i.postimg.cc/8zBRmCP6/Screenshot-2026-03-31-at-10-56-29-AM.png"></a></div>
-                        <div class="carousel-slide"><a href="https://laterrazzaraleigh.com/" target="_blank"><img src="https://i.postimg.cc/VsVDSzWz/Screenshot-2026-03-31-at-10-59-41-AM.png"></a></div>
                         <div class="carousel-slide"><a href="https://www.carolinabeach.gov/35/Discover-CB" target="_blank"><img src="https://i.postimg.cc/hjbvk44b/Screenshot-2026-03-31-at-11-01-46-AM.png"></a></div>
+                        <div class="carousel-slide"><a href="https://laterrazzaraleigh.com/" target="_blank"><img src="https://i.postimg.cc/VsVDSzWz/Screenshot-2026-03-31-at-10-59-41-AM.png"></a></div>
+                        <div class="carousel-slide"><a href="https://www.thewillardraleigh.com/" target="_blank"><img src="https://i.postimg.cc/8zBRmCP6/Screenshot-2026-03-31-at-10-56-29-AM.png"></a></div>
                         <div class="carousel-slide"><a href="https://raleighparks.org/2011/06/01/lassiter-mill-park/#google_vignette" target="_blank"><img src="https://i.postimg.cc/hGv04wQf/Screenshot-2026-03-31-at-11-00-41-AM.png"></a></div>
                     </div>
                 </div>
@@ -217,47 +204,45 @@
         </div>
 
         <div class="contact-sidebar">
-            <div class="portrait-container" style="margin-bottom: 40px;">
+            <div class="portrait-container">
                 <div class="portrait-frame">
-                    <img src="https://i.postimg.cc/ncX3Kcp5/Facetune-30-03-2026-12-58-14.jpg" style="width:100%" alt="Johnny Knapp">
-                    <div class="overlay-content"><p class="overlay-text">Hi! I'm Johnny!</p></div>
+                    <img src="https://i.postimg.cc/ncX3Kcp5/Facetune-30-03-2026-12-58-14.jpg" style="width:100%">
+                    <div class="overlay-content">
+                        <span class="overlay-tagline">At your assistance.</span>
+                        <p class="overlay-text">Hi! I'm Johnny!</p>
+                    </div>
                 </div>
             </div>
 
             <div class="contact-card">
                 <span class="section-header">Work With Me</span>
-                <a href="#" class="vcard-btn">SAVE CONTACT</a>
-                <button class="share-btn" onclick="copyProfileLink()" id="shareBtn">Share Profile Link</button>
+                <a onclick="downloadVCF()" class="vcard-btn">SAVE CONTACT</a>
                 <a href="tel:9843358772" class="contact-item"><span>Voice</span><span>984.335.8772</span></a>
                 <a href="sms:19843358772" class="contact-item"><span>Mobile</span><span style="font-weight:600">Text Johnny</span></a>
                 <a href="mailto:johnny.knapp@allentate.com" class="contact-item"><span>Inquiry</span><span>Email Johnny</span></a>
                 
-                <div class="qr-section" style="text-align: center; margin-top: 40px; opacity: 0.5;">
-                    <img src="https://i.postimg.cc/J021v36G/QR-Code.jpg" style="width: 100px; mix-blend-mode: multiply;">
+                <div style="text-align: center; margin-top: 30px;">
+                    <a href="https://www.instagram.com/imj0hnny/" target="_blank" style="display: inline-block; opacity: 0.3; transition: opacity 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.3'">
+                        <img src="https://i.postimg.cc/J021v36G/QR-Code.jpg" style="width: 80px; mix-blend-mode: multiply;">
+                    </a>
+                    <a href="https://www.instagram.com/imj0hnny/" target="_blank" class="socials-link">View Socials</a>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="salon-section" style="border-top: 1px solid #e0dbd7; padding-top: 80px;">
+    <div class="salon-section">
         <div class="salon-info">
             <span class="section-header">Salon Inquiry</span>
-            <h2 style="font-family: 'Tenor Sans', sans-serif; font-size: 1.8rem; margin-bottom: 15px;">The Master Stylist</h2>
-            <p style="font-weight: 300; font-size: 0.95rem; color: var(--text-muted); margin-bottom: 35px; line-height: 1.8;">Experience the dual mastery of intuition and technical precision at my chair. Visit the Salon Blu Brier Creek site to book your session.</p>
+            <h2 style="font-family: 'Tenor Sans'; font-size: 1.8rem; margin-bottom: 15px;">The Master Stylist</h2>
+            
+            <div style="margin-bottom: 35px;">
+                <p style="font-family: 'Tenor Sans', sans-serif; font-size: 1.6rem; line-height: 1.3; margin-bottom: 10px; color: var(--text-main);">"Life's too short for bad houses or bad hair."</p>
+                <p style="font-weight: 300; font-size: 1.05rem; color: var(--text-main); line-height: 1.5;">I’ll find you the perfect roof, then make sure you look great under it.</p>
+            </div>
             
             <a href="https://salonbluhair.com/brier-creek" target="_blank" class="salon-btn">BOOK APPOINTMENT</a>
-
-            <div class="witty-footer">
-                <p style="font-family: 'Tenor Sans', sans-serif; font-size: 1.8rem; color: var(--text-main); margin-bottom: 15px; line-height: 1.3; font-weight: 400;">
-                    "Life's too short for bad houses or bad hair."
-                </p>
-                <p style="font-size: 1.05rem; color: var(--text-main); letter-spacing: 0.5px; font-weight: 300; margin-bottom: 40px; line-height: 1.5;">
-                    I’ll find you the perfect roof, then make sure you look great under it.
-                </p>
-                <div style="opacity: 0.3; font-size: 9px; letter-spacing: 3px; text-transform: uppercase;">
-                    © 2026 Johnny Knapp • Raleigh, NC
-                </div>
-            </div>
+            <div style="margin-top: 40px; opacity: 0.3; font-size: 9px; letter-spacing: 3px; text-transform: uppercase;">© 2026 Johnny Knapp • Raleigh, NC</div>
         </div>
         
         <div class="salon-portfolio">
@@ -267,7 +252,6 @@
                     <div class="carousel-slide"><a href="https://salonbluhair.com/brier-creek" target="_blank"><img src="https://i.postimg.cc/K818NqNX/IMG-2830.jpg"></a></div>
                     <div class="carousel-slide"><a href="https://salonbluhair.com/brier-creek" target="_blank"><img src="https://i.postimg.cc/5tw17ZQR/IMG-3555.jpg"></a></div>
                     <div class="carousel-slide"><a href="https://salonbluhair.com/brier-creek" target="_blank"><img src="https://i.postimg.cc/1zchcwLR/IMG-3911.jpg"></a></div>
-                    <div class="carousel-slide"><a href="https://salonbluhair.com/brier-creek" target="_blank"><img src="https://i.postimg.cc/vmyCBDcT/IMG-4062.jpg"></a></div>
                 </div>
             </div>
         </div>
@@ -275,37 +259,62 @@
 </div>
 
 <script>
-    function copyProfileLink() {
-        const btn = document.getElementById('shareBtn');
-        navigator.clipboard.writeText(window.location.href).then(() => {
-            btn.innerText = "Link Copied!";
-            setTimeout(() => { btn.innerText = "Share Profile Link"; }, 2000);
-        });
+    // vCard Generator - FN: Johnny Knapp
+    function downloadVCF() {
+        const vcfData = [
+            'BEGIN:VCARD',
+            'VERSION:3.0',
+            'FN:Johnny Knapp',
+            'ORG:Allen Tate Realtors',
+            'TITLE:Real Estate Advisor',
+            'TEL;TYPE=CELL:9843358772',
+            'EMAIL:johnny.knapp@allentate.com',
+            'URL:https://www.instagram.com/imj0hnny/',
+            'END:VCARD'
+        ].join('\n');
+
+        const blob = new Blob([vcfData], { type: 'text/vcard' });
+        const url = window.URL.createObjectURL(blob);
+        const newLink = document.createElement('a');
+        newLink.href = url;
+        newLink.setAttribute('download', 'Johnny_Knapp.vcf');
+        newLink.click();
     }
 
-    window.addEventListener('scroll', function() {
-        const btn = document.getElementById('backToTop');
-        if (window.pageYOffset > 500) btn.classList.add('visible');
-        else btn.classList.remove('visible');
-    });
-
-    function initSyncCarousels(carouselIds, speed) {
+    // Carousel Controller with Pause-on-Hover
+    function initSyncCarousels(carouselConfigs, intervalTime) {
         let index = 0;
-        const trackers = carouselIds.map(id => {
-            const el = document.getElementById(id);
-            el.style.display = 'block';
-            return el.querySelector('.carousel-track');
+        let isPaused = false;
+
+        const timer = setInterval(() => {
+            if (!isPaused) {
+                index++;
+                carouselConfigs.forEach(config => {
+                    const el = document.getElementById(config.id);
+                    if (!el) return;
+                    const track = el.querySelector('.carousel-track');
+                    const slideIndex = index % config.slides;
+                    track.style.transform = `translateX(-${slideIndex * 100}%)`;
+                });
+            }
+        }, intervalTime);
+
+        // Attach listeners to all carousels to sync pause
+        carouselConfigs.forEach(config => {
+            const el = document.getElementById(config.id);
+            if (el) {
+                el.addEventListener('mouseenter', () => isPaused = true);
+                el.addEventListener('mouseleave', () => isPaused = false);
+            }
         });
-        setInterval(() => {
-            index = (index + 1) % 4;
-            trackers.forEach(track => {
-                track.style.transform = `translateX(-${index * 100}%)`;
-            });
-        }, speed);
     }
 
     document.addEventListener('DOMContentLoaded', () => {
-        initSyncCarousels(['nhCarousel', 'salonCarousel'], 4000);
+        // Sync 3-second snappy transitions
+        initSyncCarousels([
+            { id: 'nhCarousel', slides: 4 },
+            { id: 'salonCarousel', slides: 3 }
+        ], 3000);
     });
 </script>
 
