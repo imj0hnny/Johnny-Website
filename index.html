@@ -120,10 +120,10 @@
             .hero-container { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 100px; }
             .contact-sidebar { position: sticky; top: 80px; height: fit-content; }
 
-            /* Size correction for first portrait to original look */
+            /* Restoration of original bio portrait size */
             .contact-sidebar .portrait-frame {
-                max-width: 420px; /* Constraining width */
-                margin: 0 auto;    /* Centering within column */
+                max-width: 420px; 
+                margin: 0 auto; 
             }
 
             .local-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
@@ -141,9 +141,10 @@
                 font-size: 1.8rem; color: var(--accent-gold-aesthetic) !important; text-align: center;
                 margin-bottom: 30px !important; display: block;
             }
-            .salon-quote { margin-top: 0 !important; padding-top: 5px !important; font-family: 'Tenor Sans', sans-serif; font-size: 1.6rem; line-height: 1.3; color: var(--text-main); margin-bottom: 12px !important; }
+            .salon-quote { margin-top: 0 !important; padding-top: 10px !important; font-family: 'Tenor Sans', sans-serif; font-size: 1.6rem; line-height: 1.3; color: var(--text-main); margin-bottom: 12px !important; }
             .salon-bio-para { font-family: 'Montserrat', sans-serif; font-size: 1.15rem; font-weight: 300; line-height: 1.6; margin-bottom: 15px; }
             .salon-btn { margin-top: 0 !important; }
+            #warmRegards { font-size: 7.5rem !important; margin-top: 25px !important; text-align: center; }
             .copyright-footer { margin-top: 30px; opacity: 0.3; font-size: 9px; letter-spacing: 3px; text-transform: uppercase; font-family:'Montserrat'; text-align:center; display: block; }
         }
 
@@ -154,14 +155,14 @@
             .title, .subtitle, .section-header, .carousel-heading, .local-picks h3, .salon-info-header h2, .bio-text p, .top-quote p, .contact-item { 
                 text-align: center !important; margin-left: auto; margin-right: auto; 
             }
-            .contact-sidebar, .portrait-container { display: none !important; } /* Remove redundant mobile images */
+            .contact-sidebar, .portrait-container { display: none !important; } 
             #mobile-portrait-wrapper { display: block !important; margin: 0 auto 30px auto; width: 90%; }
             
             .hero-container, .connect-bento { display: flex; flex-direction: column; width: 100%; }
             .bio-text p { font-size: 0.85rem; line-height: 1.8; margin-bottom: 20px; padding: 0 30px; }
             .contact-card { width: 92% !important; margin: 0 auto !important; padding: 40px 25px; }
             .contact-item { justify-content: center; gap: 15px; }
-            .contact-item span:first-child { display: none; } /* Simplify mobile contact lines */
+            .contact-item span:first-child { display: none; } 
 
             /* SALON MOBILE ORDER */
             .salon-grid { display: flex; flex-direction: column; }
@@ -279,10 +280,10 @@
             <div class="local-carousel-container" style="margin-top: 40px;">
                 <h4 class="carousel-heading">Johnny's Favorites</h4>
                 <div class="portfolio-carousel" id="nhCarousel"><div class="carousel-track">
-                    <div class="carousel-slide"><img src="https://i.postimg.cc/VsVDSzWz/Screenshot-2026-03-31-at-10-59-41-AM.png"></div>
-                    <div class="carousel-slide"><img src="https://i.postimg.cc/hjbvk44b/Screenshot-2026-03-31-at-11-01-46-AM.png"></div>
-                    <div class="carousel-slide"><img src="https://i.postimg.cc/8zBRmCP6/Screenshot-2026-03-31-at-10-56-29-AM.png"></div>
-                    <div class="carousel-slide"><img src="https://i.postimg.cc/hGv04wQf/Screenshot-2026-03-31-at-11-00-41-AM.png"></div>
+                    <div class="carousel-slide"><a href="https://laterrazzaraleigh.com/" target="_blank"><img src="https://i.postimg.cc/VsVDSzWz/Screenshot-2026-03-31-at-10-59-41-AM.png"></a></div>
+                    <div class="carousel-slide"><a href="https://www.carolinabeach.gov/35/Discover-CB" target="_blank"><img src="https://i.postimg.cc/hjbvk44b/Screenshot-2026-03-31-at-11-01-46-AM.png"></a></div>
+                    <div class="carousel-slide"><a href="https://www.thewillardraleigh.com/" target="_blank"><img src="https://i.postimg.cc/8zBRmCP6/Screenshot-2026-03-31-at-10-56-29-AM.png"></a></div>
+                    <div class="carousel-slide"><a href="https://raleighparks.org/" target="_blank"><img src="https://i.postimg.cc/hGv04wQf/Screenshot-2026-03-31-at-11-00-41-AM.png"></a></div>
                 </div></div>
             </div>
         </div>
