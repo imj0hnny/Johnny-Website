@@ -121,8 +121,25 @@
             #mobile-portrait-wrapper, #mobile-community-wrapper { display: none !important; }
             .local-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
             .bio-text p { font-size: 0.9rem; line-height: 1.8; margin-bottom: 20px; }
-            .salon-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
-            .salon-portfolio { position: sticky; top: 60px; }
+            
+            /* --- CENTERED SALON GRID --- */
+            .salon-grid { 
+                display: grid; 
+                grid-template-columns: 1fr 1fr; 
+                gap: 80px; 
+                align-items: center; 
+                justify-content: center;
+            }
+            .salon-info-column {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .salon-words-wrapper {
+                max-width: 500px;
+                margin: 0 auto;
+            }
         }
 
         @media (max-width: 949px) {
@@ -134,15 +151,8 @@
             .pick-item { flex: 0 0 150px; scroll-snap-align: start; background: #fff; border: none; border-radius: 15px; box-shadow: 0 6px 15px rgba(0,0,0,0.05); padding: 15px 10px; }
             #mobile-portrait-wrapper { display: block !important; margin: 0 auto 25px auto; width: 130px; height: 130px; border-radius: 50%; overflow: hidden; border: 6px solid #fff; box-shadow: 0 10px 25px rgba(0,0,0,0.08); }
             #mobile-portrait-wrapper img { width: 100%; height: 100%; object-fit: cover; }
-            
-            /* --- UPDATED SMALLER COMMUNITY PHOTO --- */
-            #mobile-community-wrapper { 
-                display: block !important; 
-                margin: 0 auto 30px auto; 
-                width: 65%; /* Made photo smaller on mobile as requested */
-            }
+            #mobile-community-wrapper { display: block !important; margin: 0 auto 30px auto; width: 65%; }
             #mobile-community-wrapper .portrait-frame { border-radius: 20px; padding: 8px; }
-
             .connect-bento { display: flex; flex-direction: column; width: 100%; padding: 0; }
             .contact-card { width: 100% !important; margin: -30px auto 0 auto !important; border-radius: 25px 25px 0 0; box-shadow: 0 -15px 40px rgba(0,0,0,0.06); padding: 40px 20px; }
             .contact-item { font-size: 0.7rem; }
@@ -271,15 +281,15 @@
             <div class="salon-info-column">
                 <div class="salon-info-header">
                     <span class="section-header">Salon Inquiry</span>
-                    <h2 style="font-family:'Tenor Sans'; text-align:center; letter-spacing:8px; font-weight:300;">The Master Artist</h2>
+                    <h2 style="font-family:'Tenor Sans'; letter-spacing:8px; font-weight:300; margin-bottom: 30px;">The Master Artist</h2>
                 </div>
                 <div class="salon-words-wrapper">
-                    <p style="font-family:'Tenor Sans'; font-size:1.4rem; text-align:center;">"Life's too short for bad houses or bad hair."</p>
-                    <p style="font-weight:300; line-height:1.6; text-align:center; color:var(--text-muted);">With over a decade of experience as a Master Stylist, I bring the same technical precision and eye for aesthetic detail to your hair as I do to your home.</p>
+                    <p style="font-family:'Tenor Sans'; font-size:1.4rem; margin-bottom: 20px;">"Life's too short for bad houses or bad hair."</p>
+                    <p style="font-weight:300; line-height:1.8; color:var(--text-muted); margin-bottom: 40px;">With over a decade of experience as a Master Stylist, I bring the same technical precision and eye for aesthetic detail to your hair as I do to your home.</p>
                 </div>
-                <div class="salon-actions-mobile">
-                    <a href="https://salonbluhair.com/brier-creek" target="_blank" class="salon-btn">BOOK APPOINTMENT</a>
-                    <p id="warmRegards" class="signature" style="text-align: center;">Warm regards!</p>
+                <div class="salon-actions">
+                    <a href="https://salonbluhair.com/brier-creek" target="_blank" class="salon-btn" style="min-width: 250px;">BOOK APPOINTMENT</a>
+                    <p id="warmRegards" class="signature" style="margin-top: 20px;">Warm regards!</p>
                 </div>
             </div>
             <div class="salon-portfolio">
