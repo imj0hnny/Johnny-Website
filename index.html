@@ -122,7 +122,6 @@
             .local-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
             .bio-text p { font-size: 0.9rem; line-height: 1.8; margin-bottom: 20px; }
             
-            /* --- CENTERED SALON GRID --- */
             .salon-grid { 
                 display: grid; 
                 grid-template-columns: 1fr 1fr; 
@@ -191,7 +190,7 @@
             <div class="bio-text-wrapper">
                 <span class="subtitle">Real Estate Advisor</span>
                 <h1 class="title">Johnny Knapp</h1>
-                <span class="subtitle" style="letter-spacing: 2px; font-weight: 500; margin-top: 12px; color: #bca07a; font-size: 0.75rem; text-shadow: 0 1px 1px rgba(0,0,0,0.02);">Howard Hanna Allen Tate REALTOR®</span>
+                <span class="subtitle" style="letter-spacing: 2px; font-weight: 500; margin-top: 12px; color: #bca07a; font-size: 0.75rem; text-shadow: 0 1px 1px rgba(0,0,0,0.02);">Howard Hanna Allen Tate Real Estate</span>
                 
                 <div class="top-quote" style="margin-top: 30px;">
                     <p style="font-family: 'Tenor Sans', sans-serif; font-size: 1.4rem; line-height: 1.3; margin-bottom: 10px;">"Don’t just dream it, own it."</p>
@@ -285,7 +284,7 @@
                 </div>
                 <div class="salon-words-wrapper">
                     <p style="font-family:'Tenor Sans'; font-size:1.4rem; margin-bottom: 20px;">"Life's too short for bad houses or bad hair."</p>
-                    <p style="font-weight:300; line-height:1.8; color:var(--text-muted); margin-bottom: 40px;">With over a decade of experience as a Master Stylist, I bring the same technical precision and eye for aesthetic detail to your hair as I do to your home.</p>
+                    <p style="font-weight:300; line-height:1.8; color:var(--text-muted); margin-bottom: 40px;">With nearly a decade of experience as a Master Stylist, I bring the same technical precision and eye for aesthetic detail to your hair as I do to your home.</p>
                 </div>
                 <div class="salon-actions">
                     <a href="https://salonbluhair.com/brier-creek" target="_blank" class="salon-btn" style="min-width: 250px;">BOOK APPOINTMENT</a>
@@ -506,9 +505,11 @@
         let phoneIndex = 0;
         const phoneImages = document.querySelectorAll('#phonePortfolio .phone-image');
         setInterval(() => {
-            phoneImages[phoneIndex].classList.remove('active');
-            phoneIndex = (phoneIndex + 1) % phoneImages.length;
-            phoneImages[phoneIndex].classList.add('active');
+            if(phoneImages.length > 0) {
+                phoneImages[phoneIndex].classList.remove('active');
+                phoneIndex = (phoneIndex + 1) % phoneImages.length;
+                phoneImages[phoneIndex].classList.add('active');
+            }
         }, 2000);
     });
 </script>
